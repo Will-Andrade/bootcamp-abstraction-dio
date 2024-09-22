@@ -2,34 +2,21 @@ package org.andradev.domain;
 
 import java.time.LocalDate;
 
-public class Mentorship {
-	private String title;
-	private String description;
+public class Mentorship extends Content {
 	private LocalDate date;
 	
 	@Override
 	public String toString() {
 		return "Mentorship{" +
-			"title='" + title + '\'' +
-			", description='" + description + '\'' +
+			"title='" + this.getTitle() + '\'' +
+			", description='" + this.getDescription() + '\'' +
 			", date=" + date +
 			'}';
 	}
 	
-	public String getTitle() {
-		return title;
-	}
-	
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
+	@Override
+	public Double calculateXp() {
+		return DEFAULT_XP + 20d;
 	}
 	
 	public LocalDate getDate() {

@@ -1,33 +1,20 @@
 package org.andradev.domain;
 
-public class Course {
-	private String title;
-	private String description;
+public class Course extends Content {
 	private Integer workload;
 	
 	@Override
 	public String toString() {
 		return "Course{" +
-			"title='" + title + '\'' +
-			", description='" + description + '\'' +
+			"title='" + this.getTitle() + '\'' +
+			", description='" + this.getDescription() + '\'' +
 			", workload=" + workload +
 			'}';
 	}
 	
-	public String getTitle() {
-		return title;
-	}
-	
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
+	@Override
+	public Double calculateXp() {
+		return DEFAULT_XP * workload;
 	}
 	
 	public Integer getWorkload() {
